@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <!-- Escritas da tela -->
+    <h1>Sistema de Multas</h1>
+    Velocidade do carro: <input type="number" name="txtvelocidade" id="txtvelocidade"> Km/h
+    <!-- Escrita na tela + uma caixinha para digitar a velocidade -->
+    <input type="button" value="Verificar" onclick="calcular()">
+    <!-- Botão verificar junto com sua ação -->
+    <div id="resultado">
+
+    </div>
+    <script>
+        function calcular(){
+            var txtv = window.document.querySelector('input#txtvelocidade')
+            var resultado = window.document.querySelector('div#resultado')
+                                                        //div com a id resultado
+                                                        //div # resultado
+                                                        //id é com a # e class? é com '.' (ponto)
+            var velocidade = Number(txtv.value) //aqui é a conversão de String para number
+            //Aqui pega a velocidade
+            resultado.innerHTML = `<p>Sua velocidade atual é de <strong>${velocidade}Km/h</strong>`
+                                 //<p> deixa como um parágrafo  //strong é para deixar em negrito
+            if (velocidade > 60){
+                resultado.innerHTML += `<p>Você está <strong>MULTADO</strong> por excesso de velocidade`
+            }
+            resultado.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+    </script>
+</body>
+</html>
